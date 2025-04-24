@@ -54,6 +54,14 @@ public class SeleniumDemo {
         Assert.assertEquals(actualHeadline, expectedHeadline);
     }
 
+    @Test(priority = 4)
+    public void navigateToProjects() throws InterruptedException {
+        driver.findElement(By.xpath("//div[@id='main_navbar']/ul/li[4]")).click();
+        Thread.sleep(3000);
+        String actualHeadline=driver.findElement(By.xpath("(//div/p)[1]")).getText();
+        String expectedHeadline="Selenium has many projects that combine to form a versatile testing system.";
+        Assert.assertEquals(actualHeadline, expectedHeadline);
+    }
     @AfterTest
     public void afterTest(){
         driver.quit();
